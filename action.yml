@@ -1,6 +1,6 @@
 name: Bandit
 description: Run Bandit
-author: PyCQA <code-quality@python.org>
+author: '@ericwb'
 
 inputs: 
   args:
@@ -63,14 +63,20 @@ inputs:
         --exit-zero           exit with 0, even with results found
         --version             show program's version number and exit
     required: false
+    default: '-h'
   targets:
     description: |
       Source file(s) or directory(s) to be tested
     required: true
+
 runs:
   using: docker
   image: Dockerfile
   args:
-  - ${{ inputs.args }}
+    - ${{ inputs.args }}
   env:
     TARGETS: ${{ inputs.targets }}
+
+branding:
+  icon: 'shield'
+  color: 'yellow'
