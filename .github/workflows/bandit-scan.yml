@@ -1,0 +1,21 @@
+name: Bandit Code Scan
+
+on:
+  pull_request:
+    branches: [ main ]
+
+permissions:
+    pull-requests: write
+jobs:
+  bandit-action:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run Bandit Scan
+      uses: ./
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        path: "."
+        recursive: "true"
+
