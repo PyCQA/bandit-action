@@ -59,8 +59,9 @@ fi
 echo "Constructed command: $cmd"
 
 
-# Force the output format as JSON and output file, we json and to report.json
-# as this is required to format the output for the post_comment.py script
+# Force the output format as JSON and output file, we default to json and to 
+# report.json as this is required to format the output for the post_comment.py 
+# script
 cmd+=" -f json -o report.json"
 
 # Run the Bandit command

@@ -1,8 +1,8 @@
 # GitHub Action for Bandit
 
-This is the official GitHub Action for running [Bandit](https://bandit.readthedocs.io/en/latest/),
-developed by the maintainers of Bandit. It is designed to be configurable and
-easy to use.
+This is the official GitHub Action for running
+[Bandit](https://bandit.readthedocs.io/en/latest/), developed by the maintainers
+of Bandit. It is designed to be configurable and easy to use.
 
 ## Features
 
@@ -54,7 +54,7 @@ jobs:
   bandit-action:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - name: Run Bandit Scan
       uses: ./
       env:
@@ -77,7 +77,7 @@ jobs:
   bandit-action:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - name: Run Bandit Scan
       uses: ./
       env:
@@ -111,4 +111,5 @@ request.
 
 ## License
 
-This GitHub Action is distributed under the Apache License, Version 2.0, see [LICENSE](LICENSE) for more information.
+This GitHub Action is distributed under the Apache License, Version 2.0, see
+[LICENSE](LICENSE) for more information.

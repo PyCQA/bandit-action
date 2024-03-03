@@ -1,4 +1,4 @@
-name: 'Bandit Code Scan'
+name: Bandit Code Scan
 description: 'Run Bandit code scans on your Python codebase'
 inputs:
   GITHUB_TOKEN:

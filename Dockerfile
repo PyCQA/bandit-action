@@ -5,7 +5,7 @@ ENV GITHUB_REPOSITORY=""
 
 # Install additional dependencies if necessary
 RUN apk add --no-cache git bash python3 py3-pip && \
-    pip install pygithub
+    pip install PyGithub
 
 # Copy the entrypoint script
 COPY entrypoint.sh /entrypoint.sh
