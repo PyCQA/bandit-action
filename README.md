@@ -91,7 +91,7 @@ jobs:
         config_file: .bandit
         profile: bandit
         tests: B101,B102
-        skips: B101
+        skips: B103
         severity_level: low
         confidence_level: low
         verbose: true
