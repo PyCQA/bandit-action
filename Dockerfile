@@ -1,10 +1,19 @@
-FROM python:3.8-slim
+FROM ghcr.io/pycqa/bandit/bandit:latest
 
-LABEL "maintainer"="PyCQA <code-quality@python.org>"
-LABEL "repository"="https://github.com/PyCQA/bandit-action"
-LABEL "homepage"="https://github.com/PyCQA/bandit-action"
+ENV GITHUB_TOKEN=""
+ENV GITHUB_REPOSITORY=""
 
-RUN pip install bandit
+# Install additional dependencies if necessary
+RUN apk add --no-cache git bash python3 py3-pip && \
+    pip install PyGithub
 
-ADD entrypoint.sh /entrypoint.sh
+# Copy the entrypoint script
+COPY entrypoint.sh /entrypoint.sh
+
+# Make the entrypoint script executable
+RUN chmod +x /entrypoint.sh
+
+# Assuming the Dockerfile is located at the root of the repository
+COPY post_comment.py /post_comment.py
+
 ENTRYPOINT ["/entrypoint.sh"]
