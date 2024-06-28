@@ -1,10 +1,10 @@
-name: Bandit
-description: Run Bandit
+name: Bandit by PyCQA
+description: The official Bandit Action developed by PyCQA
 author: '@PyCQA'
 
 branding:
   icon: 'shield'
-  color: 'yellow'
+  color: 'black'
 
 inputs: 
   configfile:
