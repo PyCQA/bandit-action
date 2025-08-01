@@ -77,7 +77,7 @@ runs:
 
     - name: Install Bandit
       shell: bash
-      run: pip install bandit[sarif]
+      run: pip install bandit[sarif,toml]
 
     - name: Checkout repository
       uses: actions/checkout@v4
