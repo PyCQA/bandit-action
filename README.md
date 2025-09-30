@@ -30,6 +30,7 @@ jobs:
 
 | Name | Description | Required | Default Value |
 |--|--|--|--|
+| python-version | Version of Python to use | False | `"3.9"` |
 | configfile | Config file to use for selecting plugins and overriding defaults | False | `"DEFAULT"` |
 | profile | Profile to use (defaults to executing all tests) | False | `"DEFAULT"` |
 | tests | Comma-separated list of test IDs to run | False | `"DEFAULT"` |
