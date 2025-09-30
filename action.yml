@@ -7,6 +7,11 @@ branding:
   color: 'black'
 
 inputs: 
+  python-version:
+    description: |
+      Version of Python to use
+    required: false
+    default: '3.9'
   configfile:
     description: |
       Optional config file to use for selecting plugins and overriding defaults
@@ -70,10 +75,10 @@ inputs:
 runs:
   using: composite
   steps:
-    - name: Set up Python 3.9
+    - name: Set up Python ${{ inputs.python-version }}
       uses: actions/setup-python@v5
       with:
-        python-version: 3.9
+        python-version: ${{ inputs.python-version }}
 
     - name: Install Bandit
       shell: bash
