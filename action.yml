@@ -76,7 +76,7 @@ runs:
   using: composite
   steps:
     - name: Set up Python ${{ inputs.python-version }}
-      uses: actions/setup-python@v5
+      uses: actions/setup-python@v6
       with:
         python-version: ${{ inputs.python-version }}
 
@@ -86,8 +86,6 @@ runs:
 
     - name: Checkout repository
       uses: actions/checkout@v5
-      with:
-          persist-credentials: false
 
     - name: Run Bandit
       shell: bash
@@ -146,6 +144,6 @@ runs:
         INPUT_TARGETS: ${{ inputs.targets }}
 
     - name: Upload SARIF file
-      uses: github/codeql-action/upload-sarif@v3
+      uses: github/codeql-action/upload-sarif@v4
       with:
         sarif_file: results.sarif
