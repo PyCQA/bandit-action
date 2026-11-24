@@ -130,7 +130,18 @@ runs:
         else
             INI="--ini $INPUT_INI"
         fi
-        bandit $CONFIGFILE $PROFILE $TESTS $SKIPS $SEVERITY $CONFIDENCE -x $INPUT_EXCLUDE $BASELINE $INI -r $INPUT_TARGETS -f sarif -o results.sarif || true
+        set +e
+        bandit $CONFIGFILE $PROFILE $TESTS $SKIPS $SEVERITY $CONFIDENCE -x $INPUT_EXCLUDE $BASELINE $INI -r $INPUT_TARGETS -f sarif -o results.sarif
+        BANDIT_EXIT_CODE=$?
+        set -e
+
+        # Bandit returns 1 when it finds issues and still writes valid SARIF.
+        # Higher exit codes are execution errors; stop before upload-sarif can
+        # replace Bandit's useful error with a secondary JSON parse failure.
+        if [ "$BANDIT_EXIT_CODE" -gt 1 ]; then
+            echo "::error::Bandit failed with exit code $BANDIT_EXIT_CODE"
+            exit "$BANDIT_EXIT_CODE"
+        fi
       env:
         INPUT_CONFIGFILE: ${{ inputs.configfile }}
         INPUT_PROFILE: ${{ inputs.profile }}
