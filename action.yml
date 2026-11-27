@@ -11,7 +11,7 @@ inputs:
     description: |
       Version of Python to use
     required: false
-    default: '3.9'
+    default: '3.13'
   configfile:
     description: |
       Optional config file to use for selecting plugins and overriding defaults
